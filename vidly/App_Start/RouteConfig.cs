@@ -7,12 +7,15 @@ using System.Web.Routing;
 
 namespace vidly
 {
-    public class RouteConfig
+public class RouteConfig
+{
+    public static void RegisterRoutes(RouteCollection routes)
     {
-        public static void RegisterRoutes(RouteCollection routes)
-        {
-            routes.IgnoreRoute("{resource}.axd/{*pathInfo}");
-
+        routes.IgnoreRoute("{resource}.axd/{*pathInfo}");
+        //order matter in routes
+        //more specific to more generic
+        routes.MapMvcAttributeRoutes();
+      
             routes.MapRoute(
                 name: "Default",
                 url: "{controller}/{action}/{id}",
